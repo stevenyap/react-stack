@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:promise/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": { "sourceType": "module" },
+  "plugins": [ "react", "promise", "flowtype" ],
+  "env": {
+    "es6": true,
+    "jest": true
+  },
+  "globals": {
+    "__DEV__": false
+  },
+  "rules": {
+    "space-before-function-paren": "off",
+    "no-spaced-func": "off",
+    "operator-linebreak": "off",
+    "react/prop-types": "off",
+    "react/no-danger": "off",
+    "react/display-name": "off"
+  }
+}
