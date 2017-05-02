@@ -1,0 +1,19 @@
+{
+  "setupFiles": [
+    "<rootDir>/specs/specHelper.js"
+  ],
+  "collectCoverage": false,
+  "coverageReporters": [
+    "text"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules",
+    "<rootDir>/config",
+    "<rootDir>/public"
+  ],
+  "modulePaths": [
+    "<rootDir>",
+    "<rootDir>/src",
+    "<rootDir>/specs"
+  ]
+}

@@ -13,7 +13,13 @@
     "jest": true
   },
   "globals": {
-    "__DEV__": false
+    "__DEV__": false,
+    "R": false,
+    "setFetchToReturn": false,
+    "toText": false,
+    "renderJSON": false,
+    "renderText": false,
+    "ap": false
   },
   "rules": {
     "space-before-function-paren": "off",
