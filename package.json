@@ -1,0 +1,9 @@
+{
+  "name": "react-stack",
+  "version": "0.1.0",
+  "description": "An opinionated functional programming starter kit for ReactJS",
+  "main": "index.js",
+  "repository": "git@github.com:stevenyap/react-stack.git",
+  "author": "Steven Yap <stevenyap@futureworkz.com>",
+  "license": "MIT"
+}
