@@ -1,0 +1,11 @@
+[ignore]
+<PROJECT_ROOT>/specs/.*
+
+[include]
+
+[libs]
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+module.system.node.resolve_dirname=specs
