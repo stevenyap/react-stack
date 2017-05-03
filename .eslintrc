@@ -3,11 +3,14 @@
     "standard",
     "plugin:react/recommended",
     "plugin:promise/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
   ],
   "parser": "babel-eslint",
   "parserOptions": { "sourceType": "module" },
-  "plugins": [ "react", "promise", "flowtype" ],
+  "plugins": [ "react", "promise", "flowtype", "prettier" ],
   "env": {
     "es6": true,
     "jest": true
@@ -22,6 +25,17 @@
     "ap": false
   },
   "rules": {
+    "prettier/prettier": ["error", {
+        useTabs: false,
+        printWidth: 80,
+        tabWidth: 2,
+        singleQuote: true,
+        trailingComma: "none",
+        bracketSpacing: true,
+        jsxBracketSameLine: true,
+        parser: "flow",
+        semi: false
+    }],
     "space-before-function-paren": "off",
     "no-spaced-func": "off",
     "operator-linebreak": "off",

@@ -9,7 +9,7 @@ import R from 'ramda'
 global.R = R
 
 // Define our own mocked fetch
-global.setFetchToReturn = (response) => {
+global.setFetchToReturn = response => {
   global.fetch = jest.fn((url, options) =>
     Promise.resolve({
       json: () => Promise.resolve(response)
@@ -19,11 +19,11 @@ global.setFetchToReturn = (response) => {
 
 // Converts a react test renderer JSON to text
 // for expectation testing
-global.toText = (tree) => {
+global.toText = tree => {
   const text = []
 
   if (tree.children) {
-    tree.children.forEach((child) => {
+    tree.children.forEach(child => {
       if (typeof child !== 'object') {
         text.push(child)
       } else if (child.children) {
@@ -37,14 +37,11 @@ global.toText = (tree) => {
 
 // Creates a react test renderer JSON
 // that is not tracked in mobx
-global.renderJSON = (reactInstances) =>
-  renderer.create(reactInstances).toJSON()
+global.renderJSON = reactInstances => renderer.create(reactInstances).toJSON()
 
 // sugar syntax to return text-only
 // of a rendered React component
-global.renderText = (reactInstances) =>
-  toText(renderJSON(reactInstances))
+global.renderText = reactInstances => toText(renderJSON(reactInstances))
 
 // pretty print JS object
-global.ap = (object) =>
-  console.log(JSON.stringify(object, null, 2))
+global.ap = object => console.log(JSON.stringify(object, null, 2))

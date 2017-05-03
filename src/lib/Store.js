@@ -12,9 +12,7 @@ import { reactotronRedux } from 'reactotron-redux'
 import { markHydrationCompleted } from 'ducks/app'
 
 if (__DEV__) {
-  Reactotron.configure()
-    .use(reactotronRedux())
-    .connect()
+  Reactotron.configure().use(reactotronRedux()).connect()
 
   // Clear Reactotron of previous loggings
   Reactotron.clear()
@@ -22,14 +20,14 @@ if (__DEV__) {
 
 // Configure migration with redx-persist-migrate
 const manifest = {
-  '1': (state) => state
+  '1': state => state
 }
 const migration = createMigration(manifest, 'app')
 
 // Create the Store
 const initialState = {}
 const middlewares = compose(applyMiddleware(thunk), autoRehydrate(), migration)
-const rootReducers = combineReducers({...reducers, form: formReducer})
+const rootReducers = combineReducers({ ...reducers, form: formReducer })
 const create = __DEV__ ? Reactotron.createStore : createStore
 const Store = create(rootReducers, initialState, middlewares)
 
@@ -38,10 +36,8 @@ const { dispatch } = Store
 
 // Persist redux store in local storage
 // Don't persist form
-persistStore(
-  Store,
-  { blacklist: ['form'] },
-  () => { dispatch(markHydrationCompleted()) }
-)
+persistStore(Store, { blacklist: ['form'] }, () => {
+  dispatch(markHydrationCompleted())
+})
 
 export default Store

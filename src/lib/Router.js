@@ -10,7 +10,7 @@ export const Router = () => {
     <BrowserRouter>
       <div>
         <Menu />
-        <Route path='/' component={Home} />
+        <Route path="/" component={Home} />
       </div>
     </BrowserRouter>
   )
