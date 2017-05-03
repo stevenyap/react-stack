@@ -28,7 +28,9 @@
     "redux-form": "^6.6.3",
     "redux-persist": "^4.7.1",
     "redux-persist-migrate": "^4.1.0",
-    "redux-thunk": "^2.2.0"
+    "redux-seamless-immutable": "^0.3.0",
+    "redux-thunk": "^2.2.0",
+    "seamless-immutable": "^7.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

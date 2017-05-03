@@ -2,7 +2,8 @@
  * @flow
  * Responsibility: Setup the redux Store and initialise state
  */
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { combineReducers } from 'redux-seamless-immutable'
 import thunk from 'redux-thunk'
 import reducers from 'ducks/index'
 import { reducer as formReducer } from 'redux-form'
