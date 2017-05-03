@@ -25,6 +25,11 @@ Our target audience is developer (aka coders) who wants to push features fast to
 - Redux-thunk to manage async actions such as API calls
 - Ducks to structure our redux actions, creators and reducers
 
+## Upgrading
+React ecosystem is moving very quickly so you should check and upgrade the packages each time you clone this repository. Here's a list of packages that you should always check:
+
+- react-router-dom: From react-router version 4 which is in alpha (as of writing)
+
 ## TODO
 - `yarn add` all dependencies for latest version on every clone
 - Add Fluture?

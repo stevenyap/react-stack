@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { App } from 'App'
+import { Home } from 'pages/Home'
 
-describe('App', () => {
+describe('Home', () => {
   it('renders correctly', () => {
-    const tree = renderJSON(<App />)
+    const tree = renderJSON(<Home />)
     expect(tree).toMatchSnapshot()
 
     const renderedText = toText(tree)
