@@ -25,12 +25,17 @@ if (__DEV__) {
 const manifest = {
   '1': state => state
 }
-const migration = createMigration(manifest, 'app')
+const migration = createMigration(manifest, 'migration')
+const migrationReducer = state => state
 
 // Create the Store
 const initialState = {}
 const middlewares = compose(applyMiddleware(thunk), autoRehydrate(), migration)
-const rootReducers = combineReducers({ ...reducers, form: formReducer })
+const rootReducers = combineReducers({
+  ...reducers,
+  migration: migrationReducer,
+  form: formReducer
+})
 const create = __DEV__ ? Reactotron.createStore : createStore
 const Store = create(rootReducers, initialState, middlewares)
 

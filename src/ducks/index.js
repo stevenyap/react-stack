@@ -3,8 +3,8 @@
  * Responsibility: Exports all reducers
  */
 
-// import products from 'ducks/products'
+import app from 'ducks/app'
 
 export default {
-  // products
+  app
 }
