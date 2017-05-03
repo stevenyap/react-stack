@@ -1,6 +1,6 @@
 /**
  * @flow
- * Exports all reducers
+ * Responsibility: Exports all reducers
  */
 
 // import products from 'ducks/products'

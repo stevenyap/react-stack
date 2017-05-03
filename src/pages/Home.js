@@ -1,3 +1,7 @@
+/**
+ * @flow
+ * Responsibility: To display the homepage content
+ */
 import React from 'react'
 
 export const Home = () => {

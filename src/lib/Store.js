@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * Responsibility: Setup the redux Store and initialise state
+ */
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import reducers from 'ducks/index'

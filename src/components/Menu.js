@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * Responsibility: Display the menu
+ */
 import React from 'react'
 import { Link } from 'react-router-dom'
 

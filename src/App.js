@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * Responsibility: To instantiate app-level setting such as Store and Router
+ */
 import React from 'react'
 import { Provider } from 'react-redux'
 

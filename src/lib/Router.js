@@ -1,4 +1,8 @@
-// @flow
+/**
+ * @flow
+ * Responsibility: Declare all routes in the app
+ * Menu has to be included due to <Link> requiring BrowserRouter as context
+ */
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 

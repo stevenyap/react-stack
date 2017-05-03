@@ -1,6 +1,6 @@
 /**
  * @flow
- * App-related redux
+ * Responsibility: App-level related redux
  */
 
 // Actions
