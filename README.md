@@ -20,10 +20,13 @@ Our target audience is developer (aka coders) who wants to push features fast to
 - Eslint
 - Webpack 2 for packing our code
 
+- Redux-form to manage form state
+- Redux-persist to manage offline caching
+- Redux-thunk to manage async actions such as API calls
+- Ducks to structure our redux actions, creators and reducers
+
 ## TODO
 - `yarn add` all dependencies for latest version on every clone
-- Add Redux/Thunk
 - Add Fluture?
-- Add deployment
 - Add firebase + firebase mock?
 - Add explanation for each technology in README
