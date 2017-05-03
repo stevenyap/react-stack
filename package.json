@@ -11,8 +11,11 @@
     "watch:flow": "flow-watch",
     "flow": "flow",
     "watch:test": "jest --config .jestrc --watch",
-    "test": "jest --config .jestrc",
-    "lint": "eslint_d ."
+    "test": "npm run lint && npm run flow && jest --config .jestrc",
+    "lint": "eslint_d .",
+    "build": "webpack -p --progress --config config/webpack.config.prod.js",
+    "predeploy": "npm run test && npm run build",
+    "deploy": "echo \"Error: No deployment specified\" && exit 1"
   },
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -27,6 +30,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "case-sensitive-paths-webpack-plugin": "^2.0.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-flowtype": "^2.32.1",

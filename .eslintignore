@@ -1,0 +1,7 @@
+node_modules
+
+# Prevent linting in flow-typed
+flow-typed
+
+# No linting for public folder including bundle.js
+public
