@@ -22,6 +22,7 @@
     "fluture": "^5.0.0",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
     "react-redux": "^5.0.4",
