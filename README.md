@@ -36,7 +36,7 @@ For backend API, we recommend using Google Functions on NodeJS which integrates 
 ## Upgrading
 React ecosystem is moving very quickly so you should check and upgrade the packages each time you clone this repository. Here's a list of packages that you should always check:
 
-- react-router-dom: From react-router version 4 which is in alpha (as of writing)
+- react-hot-loader: Version 3 beta
 
 ## Polyfills
 - Promise: Firebase dependency is using promise-polyfill so we do not need another polyfill
