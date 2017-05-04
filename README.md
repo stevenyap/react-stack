@@ -38,6 +38,9 @@ React ecosystem is moving very quickly so you should check and upgrade the packa
 
 - react-router-dom: From react-router version 4 which is in alpha (as of writing)
 
+## Polyfills
+- Promise: Firebase dependency is using promise-polyfill so we do not need another polyfill
+
 ## TODO
 - `yarn add` all dependencies for latest version on every clone
 - Add Fluture?

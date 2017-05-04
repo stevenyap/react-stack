@@ -8,7 +8,12 @@ const config = require('./webpack.config.dev.js')
 
 // Environment variables
 const env = {
-  __DEV__: false
+  __DEV__: false,
+  'process.env': {
+    FIREBASE_API_KEY: '""',
+    FIREBASE_AUTH_DOMAIN: '""',
+    FIREBASE_DATABASE_URL: '""'
+  }
 }
 
 // Base URL for single page routing
