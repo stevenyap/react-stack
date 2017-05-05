@@ -17,12 +17,14 @@
   },
   "globals": {
     "__DEV__": false,
+    "fetch": false,
     "R": false,
-    "setFetchToReturn": false,
     "toText": false,
     "renderJSON": false,
     "renderText": false,
-    "ap": false
+    "expectPromiseToFail": false,
+    "asyncTest": false,
+    "setFetchToReturn": false
   },
   "rules": {
     "prettier/prettier": ["error", {
