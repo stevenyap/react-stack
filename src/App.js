@@ -4,14 +4,17 @@
  */
 import React from 'react'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
 import Store from 'lib/Store'
-import Router from 'lib/Router'
+import Layout from 'layout/index'
 
 const App = () => {
   return (
     <Provider store={Store}>
-      <Router />
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     </Provider>
   )
 }

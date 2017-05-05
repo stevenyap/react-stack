@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { Menu } from 'components/Menu'
+import { Menu } from 'layout/Menu'
 
 describe('Menu', () => {
   it('renders correctly', () => {
