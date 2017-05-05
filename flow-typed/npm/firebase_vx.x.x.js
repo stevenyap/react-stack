@@ -13,9 +13,11 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare type FirebaseUser = ?{
-  uid: string
-}
+declare type FirebaseUser =
+  | {
+      uid: string
+    }
+  | null
 
 declare type FirebaseSnapshot = {
   val(): Object | string | number | boolean | null,

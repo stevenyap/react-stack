@@ -22,7 +22,7 @@ if (__DEV__) {
   Reactotron.clear()
 }
 
-// Configure migration with redx-persist-migrate
+// Configure migration with redex-persist-migrate
 const manifest = {
   '1': state => state
 }
