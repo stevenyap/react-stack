@@ -1,10 +1,10 @@
 /**
  * @flow
- * Responsibility: Firebase-related functions
+ * Responsibility: Converts Firebase promise-based functions into futures
  */
 import R from 'ramda'
 import Future from 'fluture'
-import { db } from 'lib/Firebase'
+import { db, auth } from 'lib/Firebase'
 
 /**
  * Helper methods
@@ -21,3 +21,13 @@ export const dbValue = (path: string): FutureType<*> =>
 export const dbSet = R.curry((path: string, data: *): FutureType<void> =>
   Future.fromPromise(() => db.ref(path).set(data))()
 )
+
+// Returns a Future for signInWithEmailAndPassword
+export const signInWithEmailAndPassword = R.curry(
+  (email: string, password: string): FutureType<FirebaseUser> =>
+    Future.fromPromise(() => auth.signInWithEmailAndPassword(email, password))()
+)
+
+// Signs out from Firebase
+export const signOut = (): FutureType<void> =>
+  Future.fromPromise(() => auth.signOut())()
