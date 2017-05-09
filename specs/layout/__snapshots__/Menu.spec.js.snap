@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu renders correctly 1`] = `
+exports[`Menu renders correctly for public 1`] = `
 <nav
   className="navbar navbar-inverse"
 >
@@ -15,7 +15,29 @@ exports[`Menu renders correctly 1`] = `
         href="/"
         onClick={[Function]}
       >
-        Logo
+        React Stack
+      </a>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`Menu renders correctly for registered users 1`] = `
+<nav
+  className="navbar navbar-inverse"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="navbar-header"
+    >
+      <a
+        className="navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        React Stack
       </a>
       <button
         className="navbar-toggle collapsed"
@@ -57,6 +79,19 @@ exports[`Menu renders correctly 1`] = `
             role="button"
           >
             Home
+          </a>
+        </li>
+        <li
+          className=""
+          role="presentation"
+          style={undefined}
+        >
+          <a
+            href="#"
+            onClick={[Function]}
+            role="button"
+          >
+            Logout
           </a>
         </li>
       </ul>
