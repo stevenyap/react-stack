@@ -31,9 +31,9 @@ declare type FutureType<R> = {
   of: <T>(a: T) => FutureType<T>,
   fromPromise: <T>(fn: (any) => Promise<T>) => any => FutureType<T>,
   map: <T>(fn: (a: any) => T) => FutureType<T>,
-  mapRej: <T>(fn: (a: any) => T) => FutureType<T>,
+  mapRej: (fn: (a: any) => any) => FutureType<any>,
   chain: <T>(fn: (a: any) => FutureType<T>) => FutureType<T>,
-  chainRej: <T>(fn: (a: any) => FutureType<T>) => FutureType<T>,
+  chainRej: (fn: (a: any) => FutureType<any>) => FutureType<any>,
   reject: (a: string | Error) => FutureType<*>,
   fork: (rej: (a: any) => void, res: (b: R) => void) => () => void,
   promise: () => Promise<R>
