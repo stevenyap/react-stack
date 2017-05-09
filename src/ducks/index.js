@@ -4,7 +4,9 @@
  */
 
 import app from 'ducks/app'
+import admin from 'ducks/admin'
 
 export default {
-  app
+  app,
+  admin
 }
