@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders correctly 1`] = `
+<form
+  onSubmit={undefined}
+>
+  <div
+    className="form-group has-feedback"
+  >
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      Email:
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onBlur={undefined}
+      onChange={[Function]}
+      type="text"
+      value={undefined}
+    />
+  </div>
+  <div
+    className="form-group has-feedback"
+  >
+    <label
+      className="control-label"
+      htmlFor={undefined}
+    >
+      Password:
+    </label>
+    <input
+      className="form-control"
+      id={undefined}
+      onBlur={undefined}
+      onChange={[Function]}
+      type="password"
+      value={undefined}
+    />
+  </div>
+  <button
+    className="btn btn-success"
+    disabled={false}
+    onClick={undefined}
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;

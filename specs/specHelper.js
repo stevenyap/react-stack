@@ -9,6 +9,9 @@ import Future, { isFuture } from 'fluture'
 // Mock firebase so we don't use database
 jest.mock('firebase')
 
+// Mock redux-form so we can render Fields for testing
+jest.mock('redux-form')
+
 // Defines Ramda as a global for convenience in debugging
 global.R = R
 
