@@ -3,8 +3,9 @@
  * Responsibility: Render the main body of the app
  */
 import React from 'react'
+import R from 'ramda'
 import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import Grid from 'react-bootstrap/lib/Grid'
 
 import Home from 'pages/Home'
@@ -37,4 +38,6 @@ const mapStateToProps = (state: State): Props => ({
   isHydrated: state.app.isHydrated
 })
 
-export default connect(mapStateToProps)(MainBody)
+// Need withRouter here as we are connecting to Redux
+// https://github.com/ReactTraining/react-router/issues/4671
+export default R.compose(withRouter, connect(mapStateToProps))(MainBody)
