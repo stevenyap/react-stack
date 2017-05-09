@@ -5,8 +5,11 @@
 import type { ContextRouter } from 'react-router-dom'
 
 import React from 'react'
+import { connect } from 'react-redux'
 import { Nav, Navbar, NavItem } from 'react-bootstrap/lib'
 import { Link, withRouter } from 'react-router-dom'
+
+import { doLogout } from 'ducks/admin'
 
 type MenuLinkProps = { to: string, text: string } & ContextRouter
 const MenuLink = withRouter((props: MenuLinkProps) => {
@@ -15,22 +18,32 @@ const MenuLink = withRouter((props: MenuLinkProps) => {
   return <NavItem href="#" onClick={handleClick}>{text}</NavItem>
 })
 
-export const Menu = () => {
+type ComponentState = { admin: Admin }
+type Props = ComponentState & { ispatch: Dispatch }
+export const Menu = (props: Props) => {
+  const { admin, dispatch } = props
+  const logout = () => dispatch(doLogout())
+
   return (
     <Navbar inverse={true} collapseOnSelect={true}>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Logo</Link>
+          <Link to="/">React Stack</Link>
         </Navbar.Brand>
-        <Navbar.Toggle />
+        {admin && <Navbar.Toggle />}
       </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav pullRight>
-          <MenuLink to="/" text="Home" />
-        </Nav>
-      </Navbar.Collapse>
+      {admin &&
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <MenuLink to="/" text="Home" />
+            <NavItem href="#" onClick={logout}>Logout</NavItem>
+          </Nav>
+        </Navbar.Collapse>}
     </Navbar>
   )
 }
 
-export default Menu
+const mapStateToProps = (state: State): ComponentState => ({
+  admin: state.admin.data
+})
+export default connect(mapStateToProps)(Menu)
