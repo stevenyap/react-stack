@@ -23,11 +23,16 @@ export const dbSet = R.curry((path: string, data: *): FutureType<void> =>
 )
 
 // Setup the subscription to Firebase with callback but passed in the val() of the snapshot
+// Only stream changes based on updatedAt from current time
 type Event = 'child_added' | 'child_changed' | 'child_removed' | 'child_moved'
 type Callback = (data: FirebaseData) => any
 export const dbSubscribe = R.curry(
   (path: string, event: Event, callback: Callback): void =>
-    db.ref(path).on(event, snapshot => callback(snapshot.val()))
+    db
+      .ref(path)
+      .orderByChild('updatedAt')
+      .startAt(Date.now())
+      .on(event, snapshot => callback(snapshot.val()))
 )
 
 // Returns a Future for signInWithEmailAndPassword
