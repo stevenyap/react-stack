@@ -6,10 +6,6 @@ import R from 'ramda'
 import Future from 'fluture'
 import { db, auth } from 'lib/Firebase'
 
-/**
- * Helper methods
- */
-
 // Returns a Future that resolves to the value of db path
 // It will call .val() on the snapshot that is returned from Firebase
 export const dbValue = (path: string): FutureType<*> =>
@@ -21,6 +17,19 @@ export const dbValue = (path: string): FutureType<*> =>
 export const dbSet = R.curry((path: string, data: *): FutureType<void> =>
   Future.fromPromise(() => db.ref(path).set(data))()
 )
+
+// Like dbValue but only returns records from the lastUpdatedTimestamp
+export const dbSync = (
+  lastUpdatedTimestamp: number,
+  path: string
+): FutureType<*> =>
+  Future.fromPromise(() =>
+    db
+      .ref(path)
+      .orderByChild('updatedAt')
+      .startAt(lastUpdatedTimestamp + 1)
+      .once('value')
+  )().map(snapshot => snapshot.val())
 
 // Setup the subscription to Firebase with callback but passed in the val() of the snapshot
 // Only stream changes based on updatedAt from current time

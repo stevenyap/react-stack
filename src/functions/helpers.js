@@ -14,3 +14,15 @@ export const rejectFutureIf = (
   rejectMessage: string
 ) =>
   R.ifElse(predicate, () => Future.reject(new Error(rejectMessage)), Future.of)
+
+// Return the biggest updatedAt field
+type NestedObject = { [id: string]: { updatedAt: number } }
+export const findLastUpdatedAt = (data: ?NestedObject): number => {
+  return R.pipe(R.values, R.map(R.prop('updatedAt')), findLargestNumber)(
+    data || {}
+  )
+}
+
+// Returns the largest number in an array or zero for empty array
+export const findLargestNumber = (data: Array<number>): number =>
+  R.reduce(R.max, 0, data)

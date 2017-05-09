@@ -109,7 +109,16 @@ class Ref {
     return this.set(obj)
   }
 
+  // TODO: filtering functions are not implemented
   limitToLast(n) {
+    return this
+  }
+
+  orderByChild(node) {
+    return this
+  }
+
+  startAt(value) {
     return this
   }
 
