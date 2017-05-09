@@ -20,9 +20,11 @@ declare type FirebaseUser =
   | null
 
 declare type FirebaseSnapshot = {
-  val(): Object | string | number | boolean | null,
+  val(): FirebaseData,
   key: string
 }
+
+declare type FirebaseData = Object | string | number | boolean | null
 
 declare module 'firebase' {
   declare module.exports: any

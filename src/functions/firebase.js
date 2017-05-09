@@ -22,6 +22,14 @@ export const dbSet = R.curry((path: string, data: *): FutureType<void> =>
   Future.fromPromise(() => db.ref(path).set(data))()
 )
 
+// Setup the subscription to Firebase with callback but passed in the val() of the snapshot
+type Event = 'child_added' | 'child_changed' | 'child_removed' | 'child_moved'
+type Callback = (data: FirebaseData) => any
+export const dbSubscribe = R.curry(
+  (path: string, event: Event, callback: Callback): void =>
+    db.ref(path).on(event, snapshot => callback(snapshot.val()))
+)
+
 // Returns a Future for signInWithEmailAndPassword
 export const signInWithEmailAndPassword = R.curry(
   (email: string, password: string): FutureType<FirebaseUser> =>
