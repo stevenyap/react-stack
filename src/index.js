@@ -1,24 +1,31 @@
 /**
  * @flow
- * Responsibility: To inject App into HTML with hot module replacement
+ * Responsibility: To inject React into DOM with app-level settings such as hot module replacement, Store & Router
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader' // AppContainer is a necessary wrapper component for HMR
 
-import App from 'App'
+import Store from 'lib/Store'
+import Layout from 'layout/index'
 
 const hotRender = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <Provider store={Store}>
+        <BrowserRouter>
+          <Component />
+        </BrowserRouter>
+      </Provider>
     </AppContainer>,
     document.getElementById('root')
   )
 }
 
-hotRender(App)
+hotRender(Layout)
 
 // Hot Module Replacement API
 declare var module: Object
-if (module.hot) module.hot.accept('App', () => hotRender(App))
+if (module.hot) module.hot.accept('layout/index', () => hotRender(Layout))
