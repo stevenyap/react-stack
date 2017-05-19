@@ -35,14 +35,13 @@ declare type FutureType<R> = {
   chain: <T>(fn: (a: any) => FutureType<T>) => FutureType<T>,
   chainRej: (fn: (a: any) => FutureType<any>) => FutureType<any>,
   reject: (a: string | Error) => FutureType<*>,
-  fork: (rej: (a: any) => void, res: (b: R) => void) => () => void,
+  fork: (rej: (a: any) => *, res: (b: R) => *) => () => *,
   promise: () => Promise<R>
 }
 
 declare module fluture {
-  // TODO: Fix Future((rej, res) => {}) type
   declare type FutureFn<T> = (
-    (rej: Function, res: (a: any) => T) => Function
+    (rej: Function, res: (a: any) => T) => Function | void
   ) => FutureType<T>
-  declare module.exports: FutureType<any> | FutureFn<any>
+  declare module.exports: FutureFn<any> & FutureType<any>
 }
