@@ -12,6 +12,7 @@
   "parserOptions": { "sourceType": "module" },
   "plugins": [ "react", "promise", "flowtype", "prettier" ],
   "env": {
+    "browser": true,
     "es6": true,
     "jest": true
   },
