@@ -1,4 +1,4 @@
-import { dbSet, dbValue } from 'functions/firebase'
+import { dbSet, dbValue, dbRemove } from 'functions/firebase'
 import { db } from 'lib/Firebase'
 
 beforeEach(db.clearForTestCases)
@@ -19,5 +19,15 @@ describe('#dbSet', () => {
     return dbSet(path, storedValue)
       .map(() => db.mockedStorage.retrieve(path))
       .expect(value => expect(value).toBe(storedValue))
+  })
+})
+
+describe('#dbRemove', () => {
+  asyncTest('removes the given path', () => {
+    db.mockedStorage.add(path, storedValue)
+
+    return dbRemove(path)
+      .map(() => db.mockedStorage.retrieve(path))
+      .expect(value => expect(value).toBeNull())
   })
 })

@@ -18,6 +18,17 @@ export const dbSet = R.curry((path: string, data: *): FutureType<void> =>
   Future.fromPromise(() => db.ref(path).set(data))()
 )
 
+// Returns a Future that remove the data on the path
+export const dbRemove = (path: string): FutureType<*> =>
+  Future.fromPromise(() => db.ref(path).remove())()
+
+// Returns a Future that do a multi-path update
+// Firebase multi-location update works like set() instead update()
+// in that it actually overwrites the data at the specified paths
+type UpdateObj = { [path: string]: FirebaseData }
+export const dbMultiSet = (updateObj: UpdateObj): FutureType<void> =>
+  Future.fromPromise(() => db.ref().update(updateObj))()
+
 // Like dbValue but only returns records from the lastUpdatedTimestamp
 export const dbSync = (
   lastUpdatedTimestamp: number,

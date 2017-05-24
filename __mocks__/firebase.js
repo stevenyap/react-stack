@@ -109,6 +109,10 @@ class Ref {
     return this.set(obj)
   }
 
+  remove() {
+    return this.set(undefined)
+  }
+
   // TODO: filtering functions are not implemented
   limitToLast(n) {
     return this
