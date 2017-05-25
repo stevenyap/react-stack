@@ -13,19 +13,15 @@ exports[`LoginForm renders correctly 1`] = `
     >
       Email:
     </label>
-    <span
-      className="input-group"
-    >
-      <input
-        className="form-control"
-        disabled={undefined}
-        id={undefined}
-        onBlur={undefined}
-        onChange={[Function]}
-        type="text"
-        value={undefined}
-      />
-    </span>
+    <input
+      className="form-control"
+      disabled={undefined}
+      id={undefined}
+      onBlur={undefined}
+      onChange={[Function]}
+      type="text"
+      value={undefined}
+    />
   </div>
   <div
     className="form-group has-feedback"
@@ -36,19 +32,15 @@ exports[`LoginForm renders correctly 1`] = `
     >
       Password:
     </label>
-    <span
-      className="input-group"
-    >
-      <input
-        className="form-control"
-        disabled={undefined}
-        id={undefined}
-        onBlur={undefined}
-        onChange={[Function]}
-        type="password"
-        value={undefined}
-      />
-    </span>
+    <input
+      className="form-control"
+      disabled={undefined}
+      id={undefined}
+      onBlur={undefined}
+      onChange={[Function]}
+      type="password"
+      value={undefined}
+    />
   </div>
   <button
     className="btn btn-success"

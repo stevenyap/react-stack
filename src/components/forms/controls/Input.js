@@ -28,21 +28,26 @@ const Input = (props: Props) => {
   const { value, onChange, onBlur } = input
   const { touched, error, submitting } = meta
   const validationState = !touched ? null : error ? 'error' : 'success'
-
+  const hasAddon = addon || addonPost
+  const formControl = (
+    <FormControl
+      disabled={submitting}
+      type={type}
+      onBlur={onBlur}
+      onChange={onChange}
+      value={value}
+    />
+  )
   return (
     <FormGroup validationState={validationState}>
       <ControlLabel>{label}</ControlLabel>
-      <InputGroup>
-        {addon && <InputGroup.Addon>{addon}</InputGroup.Addon>}
-        <FormControl
-          disabled={submitting}
-          type={type}
-          onBlur={onBlur}
-          onChange={onChange}
-          value={value}
-        />
-        {addonPost && <InputGroup.Addon>{addonPost}</InputGroup.Addon>}
-      </InputGroup>
+      {hasAddon &&
+        <InputGroup>
+          {addon && <InputGroup.Addon>{addon}</InputGroup.Addon>}
+          {formControl}
+          {addonPost && <InputGroup.Addon>{addonPost}</InputGroup.Addon>}
+        </InputGroup>}
+      {!hasAddon && formControl}
       {touched && error && <HelpBlock>{error}</HelpBlock>}
       <FormControl.Feedback />
     </FormGroup>
