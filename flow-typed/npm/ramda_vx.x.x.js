@@ -11,7 +11,7 @@ declare module 'ramda' {
   declare type BinaryFn<A,B,R> = ((a: A, b: B) => R) & ((a:A) => (b: B) => R);
   declare type UnarySameTypeFn<T> = UnaryFn<T,T>
   declare type BinarySameTypeFn<T> = BinaryFn<T,T,T>
-  declare type NestedObject<T> = { [k: string]: T | NestedObject<T> }
+  declare type NestedObject = { [k: string]: any }
   declare type UnaryPredicateFn<T> = (x:T) => boolean
   declare type BinaryPredicateFn<T> = (x:T, y:T) => boolean
   declare type BinaryPredicateFn2<T,S> = (x:T, y:S) => boolean
@@ -474,16 +474,16 @@ declare module 'ramda' {
   declare function unionWith<T>(fn: BinaryPredicateFn<T>, x: Array<T>, y: Array<T>): Array<T>;
 
   // *Object
+  declare function assoc(key: string, val:*, src: {[k:string]:*}): {[k:string]:*};
   declare function assoc<T,S>(key: string, ...args: Array<void>):
     ((val: T, ...rest: Array<void>) => (src: {[k:string]:S}) => {[k:string]:S|T}) & ((val: T, src: {[k:string]:S}) => {[k:string]:S|T});
   declare function assoc<T,S>(key: string, val:T, ...args: Array<void>): (src: {[k:string]:S}) => {[k:string]:S|T};
-  declare function assoc<T,S>(key: string, val: T, src: {[k:string]:S}): {[k:string]:S|T};
 
+  declare function assocPath(key: Array<string>, val:*, src: {[k:string]:*}): {[k:string]:*};
   declare function assocPath<T,S>(key: Array<string>, ...args: Array<void>):
     ((val: T, ...rest: Array<void>) => (src: {[k:string]:S}) => {[k:string]:S|T})
     & ((val: T) => (src: {[k:string]:S}) => {[k:string]:S|T});
   declare function assocPath<T,S>(key: Array<string>, val:T, ...args: Array<void>): (src: {[k:string]:S}) => {[k:string]:S|T};
-  declare function assocPath<T,S>(key: Array<string>, val:T, src: {[k:string]:S}): {[k:string]:S|T};
 
   declare function clone<T>(src: T): $Shape<T>;
 
@@ -496,8 +496,9 @@ declare module 'ramda' {
   declare function dissocPath<T>(key: Array<string>, val:T, ...args: Array<void>): (src: {[k:string]:T}) => {[k:string]:T};
   declare function dissocPath<T>(key: Array<string>, val:T, src: {[k:string]:T}): {[k:string]:T};
 
-  declare function evolve<V,R>(fn: NestedObject<(x:any) => R>, ...rest: Array<void>): (src: NestedObject<any>) => NestedObject<R>;
-  declare function evolve<V,R>(fn: NestedObject<(x:any) => R>, src: NestedObject<any>): NestedObject<R>;
+  declare type TransformationObject = { [key: string]: UnaryFn<*,*> };
+  declare function evolve(fn: TransformationObject, ...rest: Array<void>): (src: NestedObject) => NestedObject;
+  declare function evolve(fn: TransformationObject, src: NestedObject): NestedObject;
 
   declare function eqProps(key: string, ...args: Array<void>):
   ((o1: Object, ...rest: Array<void>) => (o2: Object) => boolean)
@@ -552,11 +553,11 @@ declare module 'ramda' {
   declare function path<V,A:?Object>(p: Array<string>, ...rest: Array<void>): (o: A) => ?V;
   declare function path<V,A:?Object>(p: Array<string>, o: A): ?V;
 
-  declare function pathOr<T,V,A:NestedObject<V>>(or: T, ...rest: Array<void>):
+  declare function pathOr<T,V,A:NestedObject>(or: T, ...rest: Array<void>):
   ((p: Array<string>, ...rest: Array<void>) => (o: ?A) => V|T)
   & ((p: Array<string>, o: ?A) => V|T);
-  declare function pathOr<T,V,A:NestedObject<V>>(or: T, p: Array<string>, ...rest: Array<void>): (o: ?A) => V|T;
-  declare function pathOr<T,V,A:NestedObject<V>>(or: T, p: Array<string>, o: ?A): V|T;
+  declare function pathOr<T,V,A:NestedObject>(or: T, p: Array<string>, ...rest: Array<void>): (o: ?A) => V|T;
+  declare function pathOr<T,V,A:NestedObject>(or: T, p: Array<string>, o: ?A): V|T;
 
   declare function pick<A>(keys: Array<string>, ...rest: Array<void>): (val: {[key:string]: A}) => {[key:string]: A};
   declare function pick<A>(keys: Array<string>, val: {[key:string]: A}): {[key:string]: A};
@@ -617,7 +618,7 @@ declare module 'ramda' {
   declare function apply<T,V>(fn: (...args: Array<T>) => V, ...rest: Array<void>): (xs: Array<T>) => V;
   declare function apply<T,V>(fn: (...args: Array<T>) => V, xs: Array<T>): V;
 
-  declare function applySpec<S,V,T:NestedObject<(...args: Array<V>) => S>>(spec: T): (...args: Array<V>) => NestedObject<S>;
+  declare function applySpec<S,V,T:NestedObject>(spec: T): (...args: Array<V>) => NestedObject;
 
   declare function binary<T>(fn:(...args: Array<any>) => T): (x: any, y: any) => T;
 
@@ -722,17 +723,17 @@ declare module 'ramda' {
   declare function or(x: boolean, y: boolean): boolean;
   declare function or(x: boolean): (y: boolean) => boolean;
 
-  declare function pathSatisfies<T>(cond: (x: T) => boolean, path: Array<string>, o: NestedObject<T>): boolean;
-  declare function pathSatisfies<T>(cond: (x: T) => boolean, path: Array<string>, ...rest: Array<void>): (o: NestedObject<T>) => boolean;
+  declare function pathSatisfies<T>(cond: (x: T) => boolean, path: Array<string>, o: NestedObject): boolean;
+  declare function pathSatisfies<T>(cond: (x: T) => boolean, path: Array<string>, ...rest: Array<void>): (o: NestedObject) => boolean;
   declare function pathSatisfies<T>(cond: (x: T) => boolean, ...rest: Array<void>):
-  ((path: Array<string>, ...rest: Array<void>) => (o: NestedObject<T>) => boolean)
-  & ((path: Array<string>, o: NestedObject<T>) => boolean)
+  ((path: Array<string>, ...rest: Array<void>) => (o: NestedObject) => boolean)
+  & ((path: Array<string>, o: NestedObject) => boolean)
 
-  declare function propSatisfies<T>(cond: (x: T) => boolean, prop: string, o: NestedObject<T>): boolean;
-  declare function propSatisfies<T>(cond: (x: T) => boolean, prop: string, ...rest: Array<void>): (o: NestedObject<T>) => boolean;
+  declare function propSatisfies<T>(cond: (x: T) => boolean, prop: string, o: NestedObject): boolean;
+  declare function propSatisfies<T>(cond: (x: T) => boolean, prop: string, ...rest: Array<void>): (o: NestedObject) => boolean;
   declare function propSatisfies<T>(cond: (x: T) => boolean, ...rest: Array<void>):
-  ((prop: string, ...rest: Array<void>) => (o: NestedObject<T>) => boolean)
-  & ((prop: string, o: NestedObject<T>) => boolean)
+  ((prop: string, ...rest: Array<void>) => (o: NestedObject) => boolean)
+  & ((prop: string, o: NestedObject) => boolean)
 
   declare function unless<T,V,S>(pred: UnaryPredicateFn<T>, ...rest: Array<void>):
   ((fn: (x: S) => V, ...rest: Array<void>) => (x: T|S) => T|V)
