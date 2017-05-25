@@ -30,7 +30,7 @@ const Select = (props: Props) => {
   // pass onBlur to enable touched flag
   // pass onChange so the ReduxForm can work
   const { value, onChange, onBlur } = input
-  const { touched, error } = meta
+  const { touched, error, submitting } = meta
   const validationState = !touched ? null : error ? 'error' : 'success'
   const optionsHTML = R.map(optionToHTML, options)
 
@@ -39,6 +39,7 @@ const Select = (props: Props) => {
       <ControlLabel>{label}</ControlLabel>
       <FormControl
         componentClass="select"
+        disabled={submitting}
         onBlur={onBlur}
         onChange={onChange}
         value={value}>

@@ -26,7 +26,7 @@ const Input = (props: Props) => {
   // pass onBlur to enable touched flag
   // pass onChange so the ReduxForm can work
   const { value, onChange, onBlur } = input
-  const { touched, error } = meta
+  const { touched, error, submitting } = meta
   const validationState = !touched ? null : error ? 'error' : 'success'
 
   return (
@@ -35,6 +35,7 @@ const Input = (props: Props) => {
       <InputGroup>
         {addon && <InputGroup.Addon>{addon}</InputGroup.Addon>}
         <FormControl
+          disabled={submitting}
           type={type}
           onBlur={onBlur}
           onChange={onChange}
