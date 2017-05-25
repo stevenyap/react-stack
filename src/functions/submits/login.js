@@ -16,7 +16,6 @@ export const submitLogin: SubmitFunction = (values, dispatch, props) => {
 
   return new Promise((resolve, reject) => {
     const onReject = error => {
-      console.log(error)
       const { message } = error
       reject(new SubmissionError({ _error: message }))
     }
