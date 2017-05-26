@@ -7,7 +7,7 @@ import React from 'react'
 
 const ReduxForm = require.requireActual('redux-form')
 
-// ReduxForm Field requires the component to be in a parent component
+// ReduxForm Field/FormSection requires the component to be in a parent component
 // that is decorated with redux-form
 // So we make Field render the input instead
 ReduxForm.Field = props => {
@@ -17,10 +17,15 @@ ReduxForm.Field = props => {
   return <Component input={input} meta={meta} {...others} />
 }
 
+ReduxForm.FormSection = props => {
+  const { children } = props
+  return <div>{children}</div>
+}
+
 // Make reduxForm decorator returns the same component
 ReduxForm.reduxForm = () => Component => Component
 
-export const {
+const {
   actionTypes,
   arrayInsert,
   arrayMove,
@@ -76,3 +81,60 @@ export const {
   untouch,
   values
 } = ReduxForm
+
+export {
+  actionTypes,
+  arrayInsert,
+  arrayMove,
+  arrayPop,
+  arrayPush,
+  arrayRemove,
+  arrayRemoveAll,
+  arrayShift,
+  arraySplice,
+  arraySwap,
+  arrayUnshift,
+  autofill,
+  blur,
+  change,
+  destroy,
+  Field,
+  Fields,
+  FieldArray,
+  Form,
+  FormSection,
+  focus,
+  formValueSelector,
+  getFormNames,
+  getFormValues,
+  getFormInitialValues,
+  getFormSyncErrors,
+  getFormAsyncErrors,
+  getFormSyncWarnings,
+  getFormSubmitErrors,
+  initialize,
+  isDirty,
+  isInvalid,
+  isPristine,
+  isValid,
+  isSubmitting,
+  hasSubmitSucceeded,
+  hasSubmitFailed,
+  propTypes,
+  reducer,
+  reduxForm,
+  registerField,
+  reset,
+  setSubmitFailed,
+  setSubmitSucceeded,
+  startAsyncValidation,
+  startSubmit,
+  stopAsyncValidation,
+  stopSubmit,
+  submit,
+  SubmissionError,
+  touch,
+  unregisterField,
+  untouch,
+  values
+}

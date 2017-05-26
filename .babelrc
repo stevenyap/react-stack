@@ -1,20 +1,6 @@
 {
   "presets": [
     "flow",
-    // webpack understands the native import syntax, and uses it for tree shaking
-    // needed to turn off so that react-hot-loader can work
-    ["es2015", { "modules": false }],
-    "react"
-  ],
-  "plugins": [
-    "react-hot-loader/babel",
-    "transform-object-rest-spread",
-    "transform-class-properties"
-  ],
-  "env": {
-    "test": {
-      // overwrite es2015 preset with modules = true for jest to work
-      "presets": [ "flow", "es2015", "react" ]
-    }
-  }
+    "react-app"
+  ]
 }

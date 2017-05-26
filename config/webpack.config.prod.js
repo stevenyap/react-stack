@@ -5,6 +5,8 @@
  * The reason is to ensure there is no "accidental" adding of a config
  * in development which causes a problem/security in production
  */
+process.env.NODE_ENV = 'production'
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
@@ -65,8 +67,8 @@ const config = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       template: path.join(rootDir, 'config/index.ejs'),
-      hash: true, // Bust the cache in SCA hosting cloudflare
       baseUrl: baseUrl,
+      hash: true, // Bust the cache
       minify: {
         removeComments: true,
         collapseWhitespace: true,

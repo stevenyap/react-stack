@@ -1,6 +1,8 @@
 /**
  * Responsibility: Webpack config for development env
  */
+process.env.NODE_ENV = 'development'
+
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
