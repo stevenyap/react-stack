@@ -15,11 +15,14 @@ const path = require('path')
 const rootDir = path.join(__dirname, '..')
 
 // *** Configuration Settings ***
+const NODE_ENV = 'production'
 
 // Environment variables
+process.env.NODE_ENV = NODE_ENV
 const env = {
   __DEV__: false,
   'process.env': {
+    NODE_ENV: JSON.stringify(NODE_ENV),
     FIREBASE_API_KEY: '""',
     FIREBASE_AUTH_DOMAIN: '""',
     FIREBASE_DATABASE_URL: '""'
