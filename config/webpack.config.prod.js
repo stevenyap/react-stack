@@ -49,13 +49,6 @@ const config = {
 
   module: {
     rules: [
-      // Lint our files first
-      {
-        test: /\.(js|jsx)$/,
-        enforce: 'pre',
-        include: srcPath,
-        loader: require.resolve('eslint-loader')
-      },
       // Process JS files with babel
       {
         test: /\.(js|jsx)$/,
