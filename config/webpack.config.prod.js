@@ -32,6 +32,7 @@ const baseUrl = 'http://CHANGE-THIS-URL'
 // *** End Configuration Settings ***
 
 // Webpack config
+const srcPath = path.join(rootDir, '/src')
 const config = {
   context: path.join(rootDir, '/src'),
 
@@ -47,18 +48,19 @@ const config = {
   },
 
   module: {
-    loaders: [
+    rules: [
+      // Lint our files first
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        include: srcPath,
+        loader: require.resolve('eslint-loader')
+      },
       // Process JS files with babel
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      // JSON is not enabled by default in Webpack but both Node and Browserify
-      // allow it implicitly so we also enable it.
-      {
-        test: /\.json$/,
-        loader: 'json'
+        test: /\.(js|jsx)$/,
+        include: srcPath,
+        loader: require.resolve('babel-loader')
       }
     ]
   },
