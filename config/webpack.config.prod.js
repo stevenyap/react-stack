@@ -7,8 +7,10 @@
  */
 process.env.NODE_ENV = 'production'
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
+
 const path = require('path')
 const rootDir = path.join(__dirname, '..')
 
@@ -82,31 +84,8 @@ const config = {
         minifyURLs: true
       }
     }),
-    // This helps ensure the builds are consistent if source hasn't changed:
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false,
-        sequences: true,
-        dead_code: true,
-        conditionals: true,
-        booleans: true,
-        unused: true,
-        if_return: true,
-        join_vars: true,
-        drop_console: true
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
-      }
-    })
+    // ES6 aware minifier - default webpack uglify throws error when minifying non-es2015 node_modules
+    new BabiliPlugin({}, { comments: false })
   ]
 }
 
