@@ -11,7 +11,7 @@ import { rejectFutureIf } from 'functions/helpers'
 export const signInAdmin = (
   email: string,
   password: string
-): FutureType<FirebaseUser> => {
+): Fluture<Error, Admin> => {
   let firebaseUser
 
   return signInWithEmailAndPassword(email, password)
@@ -21,7 +21,7 @@ export const signInAdmin = (
         firebaseUser = user
       })
     )
-    .map(R.prop('uid'))
+    .map(R.propOr('__', 'uid'))
     .chain(isAdmin)
     .chain(rejectFutureIf(R.not, 'User is not an admin.'))
     .map(() => firebaseUser)
@@ -29,7 +29,7 @@ export const signInAdmin = (
 
 // Return true if uid is an admin
 // otherwise false
-export const isAdmin = (uid: string): FutureType<boolean> => {
+export const isAdmin = (uid: string): Fluture<boolean, boolean> => {
   // will throw PERMISSION_DENIED error if user is not admin
   return dbValue(`/admins/users/${uid}`).map(Boolean).mapRej(R.F)
 }

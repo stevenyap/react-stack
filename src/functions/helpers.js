@@ -12,8 +12,10 @@ import Future from 'fluture'
 export const rejectFutureIf = (
   predicate: (a: any) => boolean,
   rejectMessage: string
-) =>
-  R.ifElse(predicate, () => Future.reject(new Error(rejectMessage)), Future.of)
+) => (a: any) =>
+  Future((reject, resolve) => {
+    predicate(a) ? reject(new Error(rejectMessage)) : resolve(a)
+  })
 
 // Return the biggest updatedAt field
 type NestedObject = { [id: string]: { updatedAt: number } }

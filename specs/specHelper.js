@@ -4,7 +4,7 @@
 
 import renderer from 'react-test-renderer'
 import R from 'ramda'
-import Future, { isFuture } from 'fluture'
+import Future, { Sequence, isFuture } from 'fluture'
 
 // Mock firebase so we don't use database
 jest.mock('firebase')
@@ -87,19 +87,16 @@ global.ap = object => console.log(JSON.stringify(object, null, 2))
  */
 Future.prototype.expect = function Future$expect(f) {
   const wrappedFunc = value => Future.try(() => R.tap(f)(value))
-  return new Future.classes['FutureChain'](this, wrappedFunc)
+  return this.chain(wrappedFunc)
 }
 
-Future.prototype.expectFail = function Future$expect(f) {
-  // Chain a failure to ensure expectFail goes into rejection branch
-  const guard = () => expect('ExpectFail not failing').toBe('a failure')
-  const wrappedGuard = value => Future.try(() => R.tap(guard)(value))
-  const futureChain = new Future.classes['FutureChain'](this, wrappedGuard)
-
+Future.prototype.expectFail = function Future$expectFail(f) {
   // ChainRej expectFail in rejection branch
   // Note that we expect an error object and we only pass in message
   const wrappedFunc = error => Future.try(() => R.tap(f)(error.message))
-  return new Future.classes['FutureChainRej'](futureChain, wrappedFunc)
+  return this.expect(() =>
+    expect('ExpectFail not failing').toBe('a failure')
+  ).chainRej(wrappedFunc)
 }
 
 /**

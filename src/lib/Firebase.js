@@ -4,10 +4,18 @@
  */
 import firebase from 'firebase'
 
+const {
+  FIREBASE_PROJECT_ID,
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_DATABASE_URL
+} = process.env
+
 const config = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.FIREBASE_DATABASE_URL
+  projectId: FIREBASE_PROJECT_ID || '',
+  apiKey: FIREBASE_API_KEY || '',
+  authDomain: FIREBASE_AUTH_DOMAIN || '',
+  databaseURL: FIREBASE_DATABASE_URL || ''
 }
 
 firebase.initializeApp(config)

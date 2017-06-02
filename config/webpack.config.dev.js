@@ -18,6 +18,7 @@ const env = {
   __DEV__: true,
   'process.env': {
     NODE_ENV: JSON.stringify(NODE_ENV),
+    FIREBASE_PROJECT_ID: '""',
     FIREBASE_API_KEY: '""',
     FIREBASE_AUTH_DOMAIN: '""',
     FIREBASE_DATABASE_URL: '""'
