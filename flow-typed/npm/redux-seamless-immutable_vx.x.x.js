@@ -1,4 +1,4 @@
-// flow-typed signature: b6d643dcc0b5d77e6e6067db7a92b641
+// flow-typed signature: 3aae13a5b7e0d8c67fec74b5456359b2
 // flow-typed version: <<STUB>>/redux-seamless-immutable_v^0.3.0/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

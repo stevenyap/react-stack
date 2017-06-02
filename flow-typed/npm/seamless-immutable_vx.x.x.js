@@ -1,4 +1,4 @@
-// flow-typed signature: b0f182cd8c23a87528400bc0a9f566c3
+// flow-typed signature: 9d13d27c39bad6f794f7df72d95b70d8
 // flow-typed version: <<STUB>>/seamless-immutable_v^7.1.2/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

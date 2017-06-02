@@ -1,4 +1,4 @@
-// flow-typed signature: 1816821ae118fd260141b574b2f09779
+// flow-typed signature: ae42fb4f13795edd373003a54325c558
 // flow-typed version: <<STUB>>/flow-watch_v^1.1.1/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

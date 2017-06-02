@@ -1,4 +1,4 @@
-// flow-typed signature: f9fbc91bbfc5d135808acab06bc24b70
+// flow-typed signature: ee819f11e8007c749302c9ee349cf433
 // flow-typed version: <<STUB>>/react-hot-loader_vnext/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -42,7 +42,15 @@ declare module 'react-hot-loader/lib/babel/index' {
   declare module.exports: any;
 }
 
+declare module 'react-hot-loader/lib/index.dev' {
+  declare module.exports: any;
+}
+
 declare module 'react-hot-loader/lib/index' {
+  declare module.exports: any;
+}
+
+declare module 'react-hot-loader/lib/index.prod' {
   declare module.exports: any;
 }
 
@@ -100,8 +108,14 @@ declare module 'react-hot-loader/lib/AppContainer.prod.js' {
 declare module 'react-hot-loader/lib/babel/index.js' {
   declare module.exports: $Exports<'react-hot-loader/lib/babel/index'>;
 }
+declare module 'react-hot-loader/lib/index.dev.js' {
+  declare module.exports: $Exports<'react-hot-loader/lib/index.dev'>;
+}
 declare module 'react-hot-loader/lib/index.js' {
   declare module.exports: $Exports<'react-hot-loader/lib/index'>;
+}
+declare module 'react-hot-loader/lib/index.prod.js' {
+  declare module.exports: $Exports<'react-hot-loader/lib/index.prod'>;
 }
 declare module 'react-hot-loader/lib/patch.dev.js' {
   declare module.exports: $Exports<'react-hot-loader/lib/patch.dev'>;

@@ -1,4 +1,4 @@
-// flow-typed signature: acd32aa9a5bd4e1b0adbf9b3f0c65bc2
+// flow-typed signature: 1f9dcd953c63b7a01bead0bcdd2beb90
 // flow-typed version: <<STUB>>/babel-loader_v^7.0.0/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -1,4 +1,4 @@
-// flow-typed signature: e67dc06fe1e6794dff300533543017c4
+// flow-typed signature: c81e30b743ad14fe659ee8b7a656496d
 // flow-typed version: <<STUB>>/reactotron-redux_v^1.10.0/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

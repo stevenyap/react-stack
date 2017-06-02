@@ -19,8 +19,9 @@
     "deploy": "echo \"Error: No deployment specified\" && exit 1"
   },
   "dependencies": {
-    "firebase": "^3.9.0",
-    "fluture": "^5.0.0",
+    "firebase": "^4.1.1",
+    "flow-typed": "^2.1.2",
+    "fluture": "^6.2.0",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",

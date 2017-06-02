@@ -1,4 +1,4 @@
-// flow-typed signature: 8569c8576473214379f690aa1b4218c2
+// flow-typed signature: bac1eb5617c9f43c0cc657b5b4539a80
 // flow-typed version: <<STUB>>/react-bootstrap_v^0.31.0/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

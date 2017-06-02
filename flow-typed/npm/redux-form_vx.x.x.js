@@ -1,4 +1,4 @@
-// flow-typed signature: 341a584fd1167ac7b55a2f905335bef8
+// flow-typed signature: 6df4d218c3cffcfcfbfce55a12a8d718
 // flow-typed version: <<STUB>>/redux-form_v^6.6.3/flow_v0.45.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
